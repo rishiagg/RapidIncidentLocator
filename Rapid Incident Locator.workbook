@@ -16,7 +16,7 @@
             "timeContext": {
               "durationMs": 86400000
             },
-            "value": "118.163.7.225"
+            "value": "crowdstrike"
           },
           {
             "id": "ad65e7dd-2e97-4d00-acc1-09354140ab16",
