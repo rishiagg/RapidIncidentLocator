@@ -1,0 +1,131 @@
+{
+  "version": "Notebook/1.0",
+  "items": [
+    {
+      "type": 9,
+      "content": {
+        "version": "KqlParameterItem/1.0",
+        "parameters": [
+          {
+            "id": "7212b369-4530-4fa8-9b06-518b55d06f31",
+            "version": "KqlParameterItem/1.0",
+            "name": "SearchString",
+            "type": 1,
+            "isRequired": true,
+            "isGlobal": true,
+            "timeContext": {
+              "durationMs": 86400000
+            },
+            "value": "118.163.7.225"
+          },
+          {
+            "id": "ad65e7dd-2e97-4d00-acc1-09354140ab16",
+            "version": "KqlParameterItem/1.0",
+            "name": "TimeRange",
+            "type": 4,
+            "isRequired": true,
+            "typeSettings": {
+              "selectableValues": [
+                {
+                  "durationMs": 300000
+                },
+                {
+                  "durationMs": 900000
+                },
+                {
+                  "durationMs": 1800000
+                },
+                {
+                  "durationMs": 3600000
+                },
+                {
+                  "durationMs": 14400000
+                },
+                {
+                  "durationMs": 43200000
+                },
+                {
+                  "durationMs": 86400000
+                },
+                {
+                  "durationMs": 172800000
+                },
+                {
+                  "durationMs": 259200000
+                },
+                {
+                  "durationMs": 604800000
+                },
+                {
+                  "durationMs": 1209600000
+                },
+                {
+                  "durationMs": 2419200000
+                },
+                {
+                  "durationMs": 2592000000
+                },
+                {
+                  "durationMs": 5184000000
+                },
+                {
+                  "durationMs": 7776000000
+                }
+              ]
+            },
+            "timeContext": {
+              "durationMs": 86400000
+            },
+            "value": {
+              "durationMs": 7776000000
+            }
+          }
+        ],
+        "style": "pills",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces"
+      },
+      "name": "parameters - 0"
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "search in (*) '{SearchString}'\r\n| summarize count() by tablename = $table",
+        "showQuery": true,
+        "size": 0,
+        "showAnalytics": true,
+        "timeContextFromParameter": "TimeRange",
+        "showRefreshButton": true,
+        "exportFieldName": "tablename",
+        "exportParameterName": "tablename",
+        "showExportToExcel": true,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces"
+      },
+      "showPin": true,
+      "name": "query - 1"
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "{tablename}\r\n| find '{SearchString}'",
+        "showQuery": true,
+        "size": 0,
+        "showAnalytics": true,
+        "timeContextFromParameter": "TimeRange",
+        "showRefreshButton": true,
+        "showExportToExcel": true,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces"
+      },
+      "name": "query - 2"
+    }
+  ],
+  "fallbackResourceIds": [
+    "/subscriptions/b4a10294-e9a4-47e3-8dab-94cc23dd16d7/resourcegroups/sentinel-prod-rg/providers/microsoft.operationalinsights/workspaces/bdosecure-law"
+  ],
+  "fromTemplateId": "sentinel-UserWorkbook",
+  "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+}
